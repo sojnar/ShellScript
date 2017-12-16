@@ -4,22 +4,19 @@
 # Para criar um repositorio digite o comanto abaixo
 # mkdir meuNovoRepo
 # cd meuNovoRepo
-# git-create meuNovoRepo UserGit MsgDeCommitSemEspaco
+# git-create meuNovoRepo UserGit 
 
 repo_name=$1
 user=$2
-msg=$3
+
 
 curl -u $user https://api.github.com/user/repos -d "{\"name\":\"$repo_name\"}"
 git init
 echo "# $repo_name" >> README.md
 git add README.md
+echo -n "Digite a sua mensatem de commit: "
+read msg
 git commit -m "$msg"
 git remote add origin git@github.com:sojnar/$repo_name.git
 git push -u origin master 
 
-#echo "# $repo_name" >> README.md
-#git add README.md
-#git commit -m "$msg"
-#git remote add origin https://github.com/$user/$repo_name.git
-#git push -u origin master 
