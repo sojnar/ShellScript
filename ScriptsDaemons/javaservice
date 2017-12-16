@@ -1,0 +1,84 @@
+
+# chkconfig: 3 85 36
+export export JAVA_HOME=/pcsist/programas/jdk1.8.0_131
+export PATH=$PATH;$JAVA_HOME/bin
+
+start() {
+processo=`pidof java | awk '{print $1}'`
+if [ "$processo" > "0" ]
+then
+	echo ""
+	echo "O serviço já estava iniciado!"
+	echo "PID: $processo"
+	echo ""
+	
+	else
+	
+		echo ""
+		echo "Iniciando o JAVA ... "
+		cd /pcsist/programas
+		/pcsist/programas/jdk1.8.0_131/bin/java -jar doutorpc.jar &
+		echo ""
+		echo "JAVA iniciado com sucesso! "
+		echo ""
+fi
+}
+
+stop() {
+processo=`pidof java | awk '{print $1}'`
+if [ "$processo" > "0" ]
+then
+	echo ""
+	echo "O JAVA está sendo parado ...!"
+	pidof java | xargs kill -9
+	echo "JAVA parado com sucesso!"
+	echo ""
+
+	else
+		echo ""
+		echo "O serviço já estava parado!"
+		echo ""
+fi
+}
+
+status() {
+processo=`pidof java | awk '{print $1}'`
+if [ "$processo" > "0" ]
+then
+        echo ""
+        echo "O java está iniciado! "
+        echo -e "PID:$processo"
+        echo ""
+
+        else
+
+            echo ""
+            echo "O serviço está parado "
+            echo ""
+
+fi
+}
+
+case $1 in 
+
+'start')
+	 start
+;;
+'stop') 
+	 stop
+;;
+'status') 
+	 status 
+;;
+'restart')
+	 stop
+	 start 
+;;
+	 
+*)
+	echo " O serviço não aceita o parametro utilizado!"
+	echo " User os parametros start | stop | status "
+	echo " Para obter o resultado desejado!"
+;;
+
+esac
