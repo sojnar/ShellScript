@@ -1,0 +1,58 @@
+<h2>
+</h2>
+
+<div class="container">
+  <div class="row">
+    <label for="">
+      <h3> Callpture! </h3>
+    </label>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Filtrar Ramais</span>
+      <input id="filtrarRamais" class="form-control" placeholder="Separe os ramais usando virgula!" aria-describedby="basic-addon1" type="text" name="" (change)="onChangeFiltro($event)">
+    </div>
+    <br>
+    <br>
+
+  </div>
+  <div class="col-xs-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Em Ligacao</div>
+      <div class="panel-body">
+
+        <div *ngFor="let ramal of ligacao">
+          <div class="col-xs-12">
+            <ramal [nome]="ramal.nome" [ramal]="ramal.ramal" [status]="ramal.status"></ramal>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <div class="panel panel-danger">
+      <div class="panel-heading">Indisponivel</div>
+      <div class="panel-body">
+
+        <div *ngFor="let ramal of indisponiveis">
+          <div class="col-xs-12">
+            <ramal [nome]="ramal.nome" [ramal]="ramal.ramal" [status]="ramal.status"></ramal>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <div class="panel panel-success">
+      <div class="panel-heading">Disponivel</div>
+      <div class="panel-body">
+
+        <div *ngFor="let ramal of disponiveis">
+          <div class="col-xs-12">
+            <ramal [nome]="ramal.nome" [ramal]="ramal.ramal" [status]="ramal.status"></ramal>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,109 @@
+** NG Live Development Server is listening on 10.62.50.12:4200, open your browser on http://10.62.50.12:4200/ **
+webpack: wait until bundle finished: /
+[0mDate: [1m[37m2018-02-08T15:53:55.738Z[39m[22m[0m
+[0mHash: [1m[37m5d8b4a2c515645b93f62[39m[22m[0m
+[0mTime: [1m[37m11793[39m[22mms[0m
+[0mchunk {[1m[33minline[39m[22m} [1m[32minline.bundle.js[39m[22m (inline) 5.79 kB [1m[33m[entry][39m[22m[1m[32m [rendered][39m[22m[0m
+[0mchunk {[1m[33mmain[39m[22m} [1m[32mmain.bundle.js[39m[22m (main) 16.3 kB [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+[0mchunk {[1m[33mpolyfills[39m[22m} [1m[32mpolyfills.bundle.js[39m[22m (polyfills) 550 kB [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+[0mchunk {[1m[33mstyles[39m[22m} [1m[32mstyles.bundle.js[39m[22m (styles) 33.6 kB [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+[0mchunk {[1m[33mvendor[39m[22m} [1m[32mvendor.bundle.js[39m[22m (vendor) 7.41 MB [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T15:54:38.654Z[39m[22m - Hash: [1m[37m92ddc4ebc61e97011469[39m[22m - Time: [1m[37m410[39m[22mms[0m
+[0m4 unchanged chunks[0m
+[0mchunk {[1m[33mmain[39m[22m} [1m[32mmain.bundle.js[39m[22m (main) 16.9 kB [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T15:55:06.003Z[39m[22m - Hash: [1m[37m4292f0d6ddaf6b58b270[39m[22m - Time: [1m[37m296[39m[22mms[0m
+[0m4 unchanged chunks[0m
+[0mchunk {[1m[33mmain[39m[22m} [1m[32mmain.bundle.js[39m[22m (main) 17.9 kB [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T15:55:12.003Z[39m[22m - Hash: [1m[37mb71fa2e5a702078faa41[39m[22m - Time: [1m[37m333[39m[22mms[0m
+[0m4 unchanged chunks[0m
+[0mchunk {[1m[33mmain[39m[22m} [1m[32mmain.bundle.js[39m[22m (main) 17.9 kB [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T15:55:52.174Z[39m[22m - Hash: [1m[37m08d4ac9c795f2d3697a2[39m[22m - Time: [1m[37m400[39m[22mms[0m
+[0m4 unchanged chunks[0m
+[0mchunk {[1m[33mmain[39m[22m} [1m[32mmain.bundle.js[39m[22m (main) 17.9 kB [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T15:56:01.613Z[39m[22m - Hash: [1m[37mc8a05b91da4ea75b3c71[39m[22m - Time: [1m[37m669[39m[22mms[0m
+[0m4 unchanged chunks[0m
+[0mchunk {[1m[33mmain[39m[22m} [1m[32mmain.bundle.js[39m[22m (main) 23.5 kB [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T15:57:54.671Z[39m[22m - Hash: [1m[37m8ce6cdf280a9de767fe2[39m[22m - Time: [1m[37m235[39m[22mms[0m
+[0m4 unchanged chunks[0m
+[0mchunk {[1m[33mmain[39m[22m} [1m[32mmain.bundle.js[39m[22m (main) 23.8 kB [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T15:57:55.541Z[39m[22m - Hash: [1m[37m27c2f3d7e7d6aa2316bb[39m[22m - Time: [1m[37m156[39m[22mms[0m
+[0m5 unchanged chunks[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T15:57:55.958Z[39m[22m - Hash: [1m[37m8ce6cdf280a9de767fe2[39m[22m - Time: [1m[37m120[39m[22mms[0m
+[0m5 unchanged chunks[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T15:58:26.777Z[39m[22m - Hash: [1m[37mcbfeda5d900c89f46684[39m[22m - Time: [1m[37m182[39m[22mms[0m
+[0m4 unchanged chunks[0m
+[0mchunk {[1m[33mmain[39m[22m} [1m[32mmain.bundle.js[39m[22m (main) 23.8 kB [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T15:58:50.379Z[39m[22m - Hash: [1m[37me727aaf4ef9cba484e81[39m[22m - Time: [1m[37m350[39m[22mms[0m
+[0m5 unchanged chunks[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T15:58:59.175Z[39m[22m - Hash: [1m[37m1fef8036aa571e0e26f0[39m[22m - Time: [1m[37m424[39m[22mms[0m
+[0m4 unchanged chunks[0m
+[0mchunk {[1m[33mmain[39m[22m} [1m[32mmain.bundle.js[39m[22m (main) 24.3 kB [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T15:59:51.501Z[39m[22m - Hash: [1m[37m47b637a8c69df2874896[39m[22m - Time: [1m[37m259[39m[22mms[0m
+[0m4 unchanged chunks[0m
+[0mchunk {[1m[33mmain[39m[22m} [1m[32mmain.bundle.js[39m[22m (main) 24.3 kB [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+webpack: wait until bundle finished: /
+[0mDate: [1m[37m2018-02-08T15:59:52.377Z[39m[22m - Hash: [1m[37m1fef8036aa571e0e26f0[39m[22m - Time: [1m[37m201[39m[22mms[0m
+[0m4 unchanged chunks[0m
+[0mchunk {[1m[33mmain[39m[22m} [1m[32mmain.bundle.js[39m[22m (main) 24.3 kB [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T16:00:34.680Z[39m[22m - Hash: [1m[37ma59b2f7f7478d22c14d1[39m[22m - Time: [1m[37m270[39m[22mms[0m
+[0m5 unchanged chunks[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T16:00:36.824Z[39m[22m - Hash: [1m[37m1fef8036aa571e0e26f0[39m[22m - Time: [1m[37m211[39m[22mms[0m
+[0m5 unchanged chunks[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T16:00:43.309Z[39m[22m - Hash: [1m[37md070c7b48c97bc55c584[39m[22m - Time: [1m[37m424[39m[22mms[0m
+[0m4 unchanged chunks[0m
+[0mchunk {[1m[33mmain[39m[22m} [1m[32mmain.bundle.js[39m[22m (main) 24.3 kB [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+
+webpack: Compiled successfully.
+webpack: Compiling...
+[0mDate: [1m[37m2018-02-08T16:00:43.726Z[39m[22m - Hash: [1m[37m24ccf0666b9e44c5e3cb[39m[22m - Time: [1m[37m156[39m[22mms[0m
+[0m5 unchanged chunks[0m
+
+webpack: Compiled successfully.

@@ -1,0 +1,109 @@
+#!/bin/bash 
+ATA="10.62.150"
+fileEnd=(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+
+for (( j=2; j<=31; j++ ))
+do    
+  
+  cd /var/log/rsyslog/$ATA.$j
+  echo "" > messages.log
+
+  for (( i=0; i<=23; i++ ))
+  do
+    vState[$i]=1
+    valorAt[$i]="Disponivel"
+    valorAnt[$i]="Disponivel"
+  done
+
+  mState[$j]=${vState[*]}
+  mValorAt[$j]=${valorAt[*]}
+  mValorAnt[$j]=${valorAt[*]}
+
+done
+
+while [ "2" -gt "1" ]
+do
+   
+    for (( j=2; j<=31; j++ ))
+    do
+      sleep 0.1
+      cd /var/log/rsyslog/$ATA.$j
+      source ramais.sh   
+      filefirt[$j]=$(cat messages.log | grep -i Vinetic::setLineState | cut -c 95-110 | wc -l)
+
+      valorAt=(${mValorAt[j]})
+      valorAnt=(${mValorAnt[j]})
+
+      if [ "${filefirt[j]}" -gt "${fileEnd[j]}" ]
+      then
+          fileEnd[$j]=${filefirt[j]}
+          
+          for (( i=0; i<=15; i++ ))
+          do
+            log[$i]=$(cat messages.log | grep -i Vinetic::setLineState | cut -c 95-110 | grep -e "0:$i " | tail -n1 )
+            port[$i]=$(echo ${log[i]} | awk '{print $2}' | cut -d ":" -f2)
+            state=$(echo ${log[i]} | awk '{print $4}')
+
+            vState=(${mState[j]})
+            vState[$i]=$state
+            mState[$j]=${vState[*]}
+
+            if [ "${vState[i]}" == "2" ]
+            then
+                valorAt[$i]="Indisponivel"
+                stat=2
+            elif [ "${vState[i]}" == "3" ]
+            then
+                valorAt[$i]="Em ligação"
+                stat=3
+            elif [ "${vState[i]}" == "1" ]
+            then
+                valorAt[$i]="Disponivel"
+                stat=1
+            fi
+
+            if [ "${valorAt[i]}" != "${valorAnt[i]}" ]
+            then
+                echo "UPDATE ramais.ramais SET status = '$stat' WHERE ramal = '${ramal[i]}' " | mysql -uroot -p123456
+                valorAnt[$i]=${valorAt[i]}
+                mValorAt[$j]=${valorAt[*]}
+                mValorAnt[$j]=${valorAnt[*]}
+            fi
+          done
+
+          for (( i=0; i<=7; i++ ))
+          do
+            cont=$[16 + $i]
+            log[$cont]=$(cat messages.log | grep -i Vinetic::setLineState | cut -c 95-110 | grep -e "1:$i " | tail -n1 )
+            port[$cont]=$(echo ${log[cont]} | awk '{print $2}' | cut -d ":" -f2)
+            state=$(echo ${log[cont]} | awk '{print $4}')
+    
+            vState=(${mState[j]})
+            vState[$i]=$state
+            mState[$j]=${vState[*]}
+
+            if [ "${vState[cont]}" == "2" ]
+            then
+                valorAt[$cont]="Indisponivel"
+                stat=2
+            elif [ "${vState[cont]}" == 3 ]
+            then
+                valorAt[$cont]="Em ligação"
+                stat=3
+            elif [ "${vState[cont]}" == "1"  ]
+            then 
+                valorAt[$cont]="Disponivel"
+                stat=1
+            fi
+
+            if [ "${valorAt[cont]}" != "${valorAnt[cont]}" ]
+            then
+                echo "UPDATE ramais.ramais SET status = '$stat' WHERE ramal = '${ramal[cont]}' " | mysql -uroot -p123456
+                valorAnt[$cont]=${valorAt[cont]}
+                mValorAt[$j]=${valorAt[*]}
+                mValorAnt[$j]=${valorAnt[*]}
+            fi
+          done
+        fi      
+    done 
+done

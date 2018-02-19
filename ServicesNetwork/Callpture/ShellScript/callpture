@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# chkconfig: 35 85 12
+ATA="10.62.150"
+
+start () {
+  cd /opt/callpture/server/
+  nodemon index.js &
+  cd /opt/callpture/client
+  ng server --host 10.62.1.170 &
+  j=1
+
+  for ((i=1001; i<=1722; i++))
+  do
+      echo "UPDATE ramais.ramais SET status = '1' WHERE ramal = '$i' " | mysql -uroot -p123456;
+    
+  done
+  bincall & 2>> /var/log/call.log 
+}
+
+status () { 
+  echo "teste"
+}
+
+stop () {
+  script=`ps aux | grep bincall| awk '{print $2}'`
+  ng=`ps aux | grep ng| awk '{print $2}'`
+  node=`ps aux | grep node| awk '{print $2}'`
+  kill -9 $script 2> /dev/null
+  kill -9 $ng 2> /dev/null
+  kill -9 $node 2> /dev/null
+}
+
+case $1 in 
+
+'start')
+   start
+;;
+'stop') 
+   stop
+;;
+'status') 
+   status 
+;;
+'restart')
+   stop
+   start 
+;;
+   
+*)
+  echo " O serviço não aceita o parametro utilizado!"
+  echo " User os parametros start | stop | status "
+  echo " Para obter o resultado desejado!"
+;;
+
+esac
