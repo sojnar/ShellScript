@@ -11,13 +11,9 @@ do
   for (( i=0; i<=23; i++ ))
   do
     vState[$i]=1
-    valorAt[$i]="Disponivel"
-    valorAnt[$i]="Disponivel"
   done
 
   mState[$j]=${vState[*]}
-  mValorAt[$j]=${valorAt[*]}
-  mValorAnt[$j]=${valorAt[*]}
 
 done
 
@@ -31,9 +27,6 @@ do
       source ramais.sh   
       filefirt[$j]=$(cat messages.log | grep -i Vinetic::setLineState | cut -c 95-110 | wc -l)
 
-      valorAt=(${mValorAt[j]})
-      valorAnt=(${mValorAnt[j]})
-
       if [ "${filefirt[j]}" -gt "${fileEnd[j]}" ]
       then
           fileEnd[$j]=${filefirt[j]}
@@ -42,32 +35,16 @@ do
           do
             log[$i]=$(cat messages.log | grep -i Vinetic::setLineState | cut -c 95-110 | grep -e "0:$i " | tail -n1 )
             port[$i]=$(echo ${log[i]} | awk '{print $2}' | cut -d ":" -f2)
-            state=$(echo ${log[i]} | awk '{print $4}')
+            state[$i]=$(echo ${log[i]} | awk '{print $4}')
 
             vState=(${mState[j]})
-            vState[$i]=$state
-            mState[$j]=${vState[*]}
 
-            if [ "${vState[i]}" == "2" ]
+            if [ "${vState[i]}" != "${state[i]}" ]
             then
-                valorAt[$i]="Indisponivel"
-                stat=2
-            elif [ "${vState[i]}" == "3" ]
-            then
-                valorAt[$i]="Em ligação"
-                stat=3
-            elif [ "${vState[i]}" == "1" ]
-            then
-                valorAt[$i]="Disponivel"
-                stat=1
-            fi
-
-            if [ "${valorAt[i]}" != "${valorAnt[i]}" ]
-            then
-                echo "UPDATE ramais.ramais SET status = '$stat' WHERE ramal = '${ramal[i]}' " | mysql -uroot -p123456
-                valorAnt[$i]=${valorAt[i]}
-                mValorAt[$j]=${valorAt[*]}
-                mValorAnt[$j]=${valorAnt[*]}
+                echo "UPDATE ramais.ramais SET status = '${state[i]}' WHERE ramal = '${ramal[i]}' " | mysql -uroot -p123456
+                 
+                 vState[$i]=${state[i]}
+                 mState[$j]=${vState[*]}
             fi
           done
 
@@ -76,32 +53,16 @@ do
             cont=$[16 + $i]
             log[$cont]=$(cat messages.log | grep -i Vinetic::setLineState | cut -c 95-110 | grep -e "1:$i " | tail -n1 )
             port[$cont]=$(echo ${log[cont]} | awk '{print $2}' | cut -d ":" -f2)
-            state=$(echo ${log[cont]} | awk '{print $4}')
+            state[$cont]=$(echo ${log[cont]} | awk '{print $4}')
     
             vState=(${mState[j]})
-            vState[$i]=$state
-            mState[$j]=${vState[*]}
 
-            if [ "${vState[cont]}" == "2" ]
+            if [ "${vState[cont]}" != "${state[cont]}" ]
             then
-                valorAt[$cont]="Indisponivel"
-                stat=2
-            elif [ "${vState[cont]}" == 3 ]
-            then
-                valorAt[$cont]="Em ligação"
-                stat=3
-            elif [ "${vState[cont]}" == "1"  ]
-            then 
-                valorAt[$cont]="Disponivel"
-                stat=1
-            fi
-
-            if [ "${valorAt[cont]}" != "${valorAnt[cont]}" ]
-            then
-                echo "UPDATE ramais.ramais SET status = '$stat' WHERE ramal = '${ramal[cont]}' " | mysql -uroot -p123456
-                valorAnt[$cont]=${valorAt[cont]}
-                mValorAt[$j]=${valorAt[*]}
-                mValorAnt[$j]=${valorAnt[*]}
+                echo "UPDATE ramais.ramais SET status = '${state[cont]}' WHERE ramal = '${ramal[cont]}' " | mysql -uroot -p123456
+                
+                 vState[$cont]=${state[cont]}
+                 mState[$j]=${vState[*]}
             fi
           done
         fi      
